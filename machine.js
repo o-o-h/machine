@@ -183,6 +183,72 @@ function MSMV(e) {
   msX = e.clientX - rect.left;
   msY = e.clientY - rect.top;
 }
+
+
+document.addEventListener("touchstart", handleStart, false);
+document.addEventListener("touchend", handleEnd, false);
+document.addEventListener("touchcancel", handleCancel, false);
+document.addEventListener("touchleave", handleEnd, false);
+document.addEventListener("touchmove", handleMove, false);
+
+var ongoingTouches = new Array;
+
+function handleStart(evt) {
+  msdn = true;
+}
+
+function handleMove(evt) {
+  var rect ;
+  var touches = evt.changedTouches;
+
+
+  for (var i = 0; i < touches.length; i++) {
+
+    rect = evt.target.getBoundingClientRect();
+    msX = touches[i].clientX - rect.left;
+    msY = touches[i].clientY - rect.top;
+
+  }
+}
+function handleEnd(evt) {
+  msdn = false;
+
+}
+function handleCancel(evt) {
+  msdn = false;
+
+}
+
+
+function findPos (obj) {
+    var curleft = 0,
+        curtop = 0;
+
+    if (obj.offsetParent) {
+        do {
+            curleft += obj.offsetLeft;
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+
+        return { x: curleft-document.body.scrollLeft, y: curtop-document.body.scrollTop };
+    }
+}
+
+function ongoingTouchIndexById(idToFind) {
+  for (var i = 0; i < ongoingTouches.length; i++) {
+    var id = ongoingTouches[i].identifier;
+
+    if (id == idToFind) {
+      return i;
+    }
+  }
+  return -1; // not found
+}
+
+function copyTouch(touch) {
+  return {identifier: touch.identifier,clientX: touch.clientX,clientY: touch.clientY};
+}
+
 window.onload = function() {
   run();
 
