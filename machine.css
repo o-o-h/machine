@@ -19,7 +19,7 @@ color:#e2bad8;
 .wrap2 {position:relative;}
 .title{font-size:3em;text-align:center;top:10px;width:100%;height:auto;z-index:1;}
 .rsvg {height:100%;width:auto;z-index:1;position:relative;}
-canvas{z-index:2;}
+canvas{z-index:0;position: absolute;top:0;}
 
 .desc{position:fixed;font-size:1.3em;text-align:left;color:;bottom:6%;left:10px;width:30%;height:auto;z-index:99;}
 .othertracks {position:fixed;font-size:1.3em;text-align:center;right:-23%;top:50%;width:50%;height:auto;z-index: 102;transform: rotate(90deg)}

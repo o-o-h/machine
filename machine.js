@@ -5,7 +5,7 @@ window.requestAnimFrame = (function(callback) {
     };
 })();
 
-var gnum = 90; //num grids / frame
+var gnum = 120; //num grids / frame
 var _x = 3000; //x width (canvas width)
 var _y = 3000; //y height (canvas height)
 var w = _x / gnum; //grid sq width
