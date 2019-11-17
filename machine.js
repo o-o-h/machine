@@ -100,7 +100,7 @@ function mv_part() {
   }
   //draw grid function
 function draw() {
-    $.strokeStyle = "hsla(" + (ŭ % 360);
+    $.strokeStyle = "hsla(0, 0%, 15%, 1)";
     $.beginPath();
     ŭ -= .5;
     for (var i = 0; i < gnum - 1; i += 1) {
